@@ -16,7 +16,7 @@ final class ImageViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.startAnimating()
@@ -24,38 +24,22 @@ final class ImageViewController: UIViewController {
         fetchImage()
     }
     
-    private func fetchImage() {
-        
-        URLSession.shared.dataTask(with: Link.randomFoxURL.url) { data, response, error in
-            guard let data = data, let response = response else {
-                print(error?.localizedDescription ?? "No error description")
-                return
-            }
-            
-            let jsonDecoder = JSONDecoder()
-            
-            do {
-                self.foxImage = try jsonDecoder.decode(FoxImage.self, from: data)
-            } catch let error {
-                print(error.localizedDescription)
-            }
-            
-            print(response)
-            
-              
-            self.networkManager.fetchImage(from: self.foxImage.image) { result in
-                    switch result {
-                    case .success(let data):
-                        DispatchQueue.main.async {
-                            self.imageView.image = UIImage(data: data)
-                            self.activityIndicator.stopAnimating()
-                        }
-                    case .failure(let error):
-                        print(error)
-                    }
-                }
-            }.resume()
-        }
     
+    private func fetchImage() {
+        networkManager.fetchImage2(url: Link.randomFoxURL.url) { url in
+            self.networkManager.fetchImage(from: url) { result in
+                switch result {
+                case.success(let data):
+                    DispatchQueue.main.async {
+                        self.imageView.image = UIImage(data: data)
+                        self.activityIndicator.stopAnimating()
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        } 
+    }
 }
+
 

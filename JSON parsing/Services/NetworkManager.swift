@@ -48,27 +48,49 @@ final class NetworkManager {
         }
     }
     
-//    private func fetchFox(url: URL, completion: @escaping(String?) -> Void) {
-//        
-//        URLSession.shared.dataTask(with: url) { data, response, error in
-//            guard let data = data, let response = response else {
-//                print(error?.localizedDescription ?? "No error description")
-//                return
-//            }
-//            
-//            let jsonDecoder = JSONDecoder()
-//            
-//            do {
-//                    let foxImage = try jsonDecoder.decode(FoxImage.self, from: data)
-//                DispatchQueue.main.async {
-//                    completion(foxImage.image)
-//                }
-//            } catch let error {
-//                print(error.localizedDescription)
-//            }
-//            
-//            print(response)
-//        }.resume()
-//        
-//    }
+    //    private func fetchFox(url: URL, completion: @escaping(String?) -> Void) {
+    //
+    //        URLSession.shared.dataTask(with: url) { data, response, error in
+    //            guard let data = data, let response = response else {
+    //                print(error?.localizedDescription ?? "No error description")
+    //                return
+    //            }
+    //
+    //            let jsonDecoder = JSONDecoder()
+    //
+    //            do {
+    //                    let foxImage = try jsonDecoder.decode(FoxImage.self, from: data)
+    //                DispatchQueue.main.async {
+    //                    completion(foxImage.image)
+    //                }
+    //            } catch let error {
+    //                print(error.localizedDescription)
+    //            }
+    //
+    //            print(response)
+    //        }.resume()
+    //
+    //    }
+    
+    
+    func fetchImage2(url: URL, completion:@escaping(URL) -> Void) {
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, let response = response else {
+                print(error?.localizedDescription ?? "No error description")
+                return
+            }
+            
+            let jsonDecoder = JSONDecoder()
+            
+            do {
+                let foxImage = try jsonDecoder.decode(FoxImage.self, from: data)
+                completion(foxImage.image)
+            } catch let error {
+                print(error.localizedDescription)
+            }
+            
+            print(response)
+        } .resume()
+    }
 }
