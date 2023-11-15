@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FoxImage {
-    var image: String?
-   static var link: String?
+struct FoxImage: Decodable {
+    var image: URL
+    var link: URL
 }

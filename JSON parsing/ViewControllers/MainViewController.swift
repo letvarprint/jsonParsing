@@ -8,23 +8,6 @@
 import UIKit
 
 
-enum Link {
-    case holidaysURL
-    case starWarsURL
-    case randomFoxURL
-    
-    var url: URL {
-        switch self {
-        case .holidaysURL:
-            return URL(string: "https://date.nager.at/api/v2/publicholidays/2020/US")!
-        case .starWarsURL:
-            return URL(string:     "https://swapi.dev/api/planets/3/?format=json")!
-        case .randomFoxURL:
-            return URL(string:
-                        "https://randomfox.ca/floof/")!
-        }
-    }
-}
 
 enum UserAction: CaseIterable {
     case fetchHolidays

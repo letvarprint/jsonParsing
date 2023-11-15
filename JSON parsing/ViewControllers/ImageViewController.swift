@@ -9,6 +9,10 @@ import UIKit
 
 final class ImageViewController: UIViewController {
     
+    var foxImage: FoxImage!
+    
+    let networkManager = NetworkManager.shared
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -17,35 +21,41 @@ final class ImageViewController: UIViewController {
         super.viewDidLoad()
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLoad()
         fetchImage()
     }
     
     private func fetchImage() {
-        guard let url = URL(string: FoxImage.link!) else {
-                print("Invalid URL")
-            return
-            }
         
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        URLSession.shared.dataTask(with: Link.randomFoxURL.url) { data, response, error in
             guard let data = data, let response = response else {
                 print(error?.localizedDescription ?? "No error description")
                 return
             }
             
-            guard let image = UIImage(data: data) else { return }
+            let jsonDecoder = JSONDecoder()
             
-            DispatchQueue.main.async {
-                self.imageView.image = image
-                self.activityIndicator.stopAnimating()
+            do {
+                self.foxImage = try jsonDecoder.decode(FoxImage.self, from: data)
+            } catch let error {
+                print(error.localizedDescription)
             }
             
-            
             print(response)
-        }.resume()
-    }
-  
+            
+              
+            self.networkManager.fetchImage(from: self.foxImage.image) { result in
+                    switch result {
+                    case .success(let data):
+                        DispatchQueue.main.async {
+                            self.imageView.image = UIImage(data: data)
+                            self.activityIndicator.stopAnimating()
+                        }
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
+            }.resume()
+        }
+    
 }
+

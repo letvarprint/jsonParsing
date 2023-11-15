@@ -18,6 +18,7 @@
 		FA642F7B2B0139E600E549E9 /* StarWars.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA642F7A2B0139E600E549E9 /* StarWars.swift */; };
 		FA642F7D2B01412D00E549E9 /* FoxImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA642F7C2B01412D00E549E9 /* FoxImage.swift */; };
 		FA642F7F2B0148DA00E549E9 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA642F7E2B0148DA00E549E9 /* ImageViewController.swift */; };
+		FA642F842B0478E900E549E9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA642F832B0478E900E549E9 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		FA642F7A2B0139E600E549E9 /* StarWars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWars.swift; sourceTree = "<group>"; };
 		FA642F7C2B01412D00E549E9 /* FoxImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoxImage.swift; sourceTree = "<group>"; };
 		FA642F7E2B0148DA00E549E9 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		FA642F832B0478E900E549E9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,14 +68,13 @@
 		FA642F5D2B006C2D00E549E9 /* JSON parsing */ = {
 			isa = PBXGroup;
 			children = (
+				FA642F812B04780E00E549E9 /* Services */,
+				FA642F802B04780000E549E9 /* Recources */,
 				FA642F792B007ED700E549E9 /* StoryBoards */,
 				FA642F782B007EC800E549E9 /* ViewControllers */,
 				FA642F752B00743F00E549E9 /* Views */,
 				FA642F722B006C3700E549E9 /* Model */,
-				FA642F5E2B006C2D00E549E9 /* AppDelegate.swift */,
-				FA642F602B006C2D00E549E9 /* SceneDelegate.swift */,
-				FA642F672B006C2F00E549E9 /* Assets.xcassets */,
-				FA642F6C2B006C2F00E549E9 /* Info.plist */,
+				FA642F822B04782700E549E9 /* App */,
 			);
 			path = "JSON parsing";
 			sourceTree = "<group>";
@@ -112,6 +113,32 @@
 				FA642F692B006C2F00E549E9 /* LaunchScreen.storyboard */,
 			);
 			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		FA642F802B04780000E549E9 /* Recources */ = {
+			isa = PBXGroup;
+			children = (
+				FA642F672B006C2F00E549E9 /* Assets.xcassets */,
+			);
+			path = Recources;
+			sourceTree = "<group>";
+		};
+		FA642F812B04780E00E549E9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FA642F832B0478E900E549E9 /* NetworkManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FA642F822B04782700E549E9 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FA642F5E2B006C2D00E549E9 /* AppDelegate.swift */,
+				FA642F602B006C2D00E549E9 /* SceneDelegate.swift */,
+				FA642F6C2B006C2F00E549E9 /* Info.plist */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA642F842B0478E900E549E9 /* NetworkManager.swift in Sources */,
 				FA642F772B00747A00E549E9 /* UserActionCell.swift in Sources */,
 				FA642F632B006C2D00E549E9 /* MainViewController.swift in Sources */,
 				FA642F5F2B006C2D00E549E9 /* AppDelegate.swift in Sources */,
@@ -345,7 +373,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "JSON parsing/Info.plist";
+				INFOPLIST_FILE = "JSON parsing/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -372,7 +400,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "JSON parsing/Info.plist";
+				INFOPLIST_FILE = "JSON parsing/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
