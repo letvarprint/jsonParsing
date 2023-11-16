@@ -66,6 +66,8 @@
                     <navigationItem key="navigationItem" id="Ull-6Y-Ch6"/>
                     <connections>
                         <segue destination="UOu-ew-ipm" kind="show" identifier="showImage" id="OV0-8T-m8o"/>
+                        <segue destination="j5m-Vr-qrG" kind="show" identifier="fetchHolidays" id="20K-qV-Yia"/>
+                        <segue destination="hiz-pP-1Dp" kind="show" id="2wQ-RA-eV0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -111,6 +113,115 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IgG-H4-iw8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1663.3587786259541" y="3.5211267605633805"/>
+        </scene>
+        <!--Star Wars Table View Controller-->
+        <scene sceneID="j2K-Zc-m8w">
+            <objects>
+                <tableViewController id="hiz-pP-1Dp" customClass="StarWarsTableViewController" customModule="JSON_parsing" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="SIS-4l-ikR">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="9mr-y8-0vj">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9mr-y8-0vj" id="8fF-dH-vKa">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hiz-pP-1Dp" id="E3Z-Zn-cba"/>
+                            <outlet property="delegate" destination="hiz-pP-1Dp" id="5hg-C0-mku"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="feT-Ub-j9P"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SPk-7g-3aG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1662" y="691"/>
+        </scene>
+        <!--Holiday Table View Controller-->
+        <scene sceneID="c5I-2G-Bmb">
+            <objects>
+                <tableViewController id="j5m-Vr-qrG" customClass="HolidayTableViewController" customModule="JSON_parsing" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="MJQ-yg-zyR">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="holidayCell" rowHeight="88" id="LhO-8J-IUH" customClass="HolidayCell" customModule="JSON_parsing" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="393" height="88"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LhO-8J-IUH" id="LNY-uy-U6X">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="88"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="hhp-NK-yhs">
+                                            <rect key="frame" x="20" y="11" width="132.66666666666666" height="64.666666666666671"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="8Uo-4I-GA7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="64.666666666666671"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJp-YC-anF">
+                                                            <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="20.333333333333332"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OpC-9W-C2j">
+                                                            <rect key="frame" x="0.0" y="44.333333333333336" width="41.333333333333336" height="20.333333333333336"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="g8Z-vN-QJv">
+                                                    <rect key="frame" x="91.333333333333329" y="0.0" width="41.333333333333329" height="64.666666666666671"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qON-pV-0AA">
+                                                            <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="21.333333333333332"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37O-qd-xPv">
+                                                            <rect key="frame" x="0.0" y="43.333333333333336" width="41.333333333333336" height="21.333333333333336"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="hhp-NK-yhs" firstAttribute="top" secondItem="LNY-uy-U6X" secondAttribute="topMargin" id="3et-p2-YXh"/>
+                                        <constraint firstItem="hhp-NK-yhs" firstAttribute="leading" secondItem="LNY-uy-U6X" secondAttribute="leadingMargin" id="APn-de-qED"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="countryCodeLabel" destination="aJp-YC-anF" id="9CF-iH-N3B"/>
+                                    <outlet property="dateLabel" destination="OpC-9W-C2j" id="Fja-na-PpN"/>
+                                    <outlet property="nameLabel" destination="qON-pV-0AA" id="7Ya-wP-YKn"/>
+                                    <outlet property="typeLabel" destination="37O-qd-xPv" id="8Ej-4k-kYy"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="j5m-Vr-qrG" id="zlH-GN-zSd"/>
+                            <outlet property="delegate" destination="j5m-Vr-qrG" id="UcO-4g-MBB"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="EGE-ua-ikv"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kgh-YZ-35n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1661.8320610687022" y="-680.28169014084506"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8kY-Vx-zyq">

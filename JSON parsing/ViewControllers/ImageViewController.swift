@@ -26,7 +26,7 @@ final class ImageViewController: UIViewController {
     
     
     private func fetchImage() {
-        networkManager.fetchImage2(url: Link.randomFoxURL.url) { url in
+        networkManager.fetchFox(url: Link.randomFoxURL.url) { url in
             self.networkManager.fetchImage(from: url) { result in
                 switch result {
                 case.success(let data):

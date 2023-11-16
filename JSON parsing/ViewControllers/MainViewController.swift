@@ -64,6 +64,7 @@ func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPat
     switch userAction {
     case .fetchHolidays:
        fetchHolidays()
+        performSegue(withIdentifier: "fetchHolidays", sender: nil)
     case .fetchStarWars:
         fetchStarWars()
     case .randomFox:

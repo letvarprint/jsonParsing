@@ -48,32 +48,7 @@ final class NetworkManager {
         }
     }
     
-    //    private func fetchFox(url: URL, completion: @escaping(String?) -> Void) {
-    //
-    //        URLSession.shared.dataTask(with: url) { data, response, error in
-    //            guard let data = data, let response = response else {
-    //                print(error?.localizedDescription ?? "No error description")
-    //                return
-    //            }
-    //
-    //            let jsonDecoder = JSONDecoder()
-    //
-    //            do {
-    //                    let foxImage = try jsonDecoder.decode(FoxImage.self, from: data)
-    //                DispatchQueue.main.async {
-    //                    completion(foxImage.image)
-    //                }
-    //            } catch let error {
-    //                print(error.localizedDescription)
-    //            }
-    //
-    //            print(response)
-    //        }.resume()
-    //
-    //    }
-    
-    
-    func fetchImage2(url: URL, completion:@escaping(URL) -> Void) {
+    func fetchFox(url: URL, completion:@escaping(URL) -> Void) {
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, let response = response else {
@@ -85,12 +60,35 @@ final class NetworkManager {
             
             do {
                 let foxImage = try jsonDecoder.decode(FoxImage.self, from: data)
-                completion(foxImage.image)
+                DispatchQueue.main.async {
+                    completion(foxImage.image)
+                }
             } catch let error {
                 print(error.localizedDescription)
             }
             
             print(response)
         } .resume()
+    }
+    
+    func fetchHolidays(url: URL, completition:@escaping([Holiday]) -> Void) {
+        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
+            guard let data = data else {
+                print(error)
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let holidays = try decoder.decode([Holiday].self, from: data)
+                DispatchQueue.main.async {
+                    completition(holidays)
+                }
+            } catch let error {
+                print(error.localizedDescription)
+            }
+            
+        }.resume()
     }
 }
