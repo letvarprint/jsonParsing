@@ -63,10 +63,8 @@ func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPat
     
     switch userAction {
     case .fetchHolidays:
-       fetchHolidays()
         performSegue(withIdentifier: "fetchHolidays", sender: nil)
-    case .fetchStarWars:
-        fetchStarWars()
+    case .fetchStarWars: break
     case .randomFox:
         performSegue(withIdentifier: "showImage", sender: nil)
     }
@@ -82,45 +80,4 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: 250, height: 150)
     }
 }
-// MARK: - Networking
-extension MainViewController {
-    private func fetchHolidays() {
-        URLSession.shared.dataTask(with: Link.holidaysURL.url) { data, _ , error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "No error description")
-                return
-            }
-            
-            let jsonDecoder = JSONDecoder()
-            
-            do {
-                let holiday = try jsonDecoder.decode([Holiday].self, from: data)
-                print(holiday)
-            } catch let error {
-                print(error.localizedDescription)
-            }
-            
-            
-        }.resume()
-    }
-    
-    private func fetchStarWars() {
-        URLSession.shared.dataTask(with: Link.starWarsURL.url) { data, _ , error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "No error description")
-                return
-            }
-            
-            let jsonDecoder = JSONDecoder()
-            
-            do {
-                let starWars = try jsonDecoder.decode(StarWars.self, from: data)
-                print(starWars)
-            } catch let error {
-                print(error.localizedDescription)
-            }
-            
-            
-        }.resume()
-    }
-}
+
