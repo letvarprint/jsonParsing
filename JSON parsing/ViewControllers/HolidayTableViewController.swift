@@ -15,7 +15,7 @@ class HolidayTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchHoliday()
+        fetchHolidays()
         tableView.rowHeight = 100
     }
 
@@ -38,11 +38,14 @@ class HolidayTableViewController: UITableViewController {
 
 // MARK: - Networking
 extension HolidayTableViewController {
-    func fetchHoliday() {
-        networkManager.fetchHolidays(url: Link.holidaysURL.url) { data in
-            self.holidays = data
-            DispatchQueue.main.async {
+    private func fetchHolidays() {
+        networkManager.fetchHolidays(form: Link.holidaysURL.url) { result in
+            switch result {
+            case .success(let holidays):
+                self.holidays = holidays
                 self.tableView.reloadData()
+            case .failure(let error):
+                print(error)
             }
         }
     }

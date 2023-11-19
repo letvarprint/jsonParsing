@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,7 @@
 		FA642F882B0589C100E549E9 /* StarWarsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA642F872B0589C100E549E9 /* StarWarsTableViewController.swift */; };
 		FA642F8D2B05966500E549E9 /* StarWarsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA642F8C2B05966500E549E9 /* StarWarsCell.swift */; };
 		FA642F8F2B0596AC00E549E9 /* HolidayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA642F8E2B0596AC00E549E9 /* HolidayCell.swift */; };
+		FA642F922B0A747E00E549E9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FA642F912B0A747E00E549E9 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA642F922B0A747E00E549E9 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +171,9 @@
 			dependencies = (
 			);
 			name = "JSON parsing";
+			packageProductDependencies = (
+				FA642F912B0A747E00E549E9 /* Alamofire */,
+			);
 			productName = "JSON parsing";
 			productReference = FA642F5B2B006C2D00E549E9 /* JSON parsing.app */;
 			productType = "com.apple.product-type.application";
@@ -197,6 +202,9 @@
 				Base,
 			);
 			mainGroup = FA642F522B006C2D00E549E9;
+			packageReferences = (
+				FA642F902B0A747E00E549E9 /* XCLocalSwiftPackageReference "../../../../Downloads/Alamofire-master" */,
+			);
 			productRefGroup = FA642F5C2B006C2D00E549E9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -457,6 +465,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		FA642F902B0A747E00E549E9 /* XCLocalSwiftPackageReference "../../../../Downloads/Alamofire-master" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../../../Downloads/Alamofire-master";
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FA642F912B0A747E00E549E9 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FA642F532B006C2D00E549E9 /* Project object */;
 }

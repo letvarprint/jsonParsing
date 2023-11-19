@@ -26,20 +26,17 @@ final class ImageViewController: UIViewController {
     
     
     private func fetchImage() {
-        networkManager.fetchFox(url: Link.randomFoxURL.url) { url in
-            self.networkManager.fetchImage(from: url) { result in
-                switch result {
-                case.success(let data):
-                    DispatchQueue.main.async {
-                        self.imageView.image = UIImage(data: data)
-                        self.activityIndicator.stopAnimating()
-                    }
-                case .failure(let error):
-                    print(error)
-                }
+        networkManager.fetchData(from: Link.randomFoxURL.url, completion: { result in
+            switch result {
+            case .success(let data):
+                self.imageView.image = UIImage(data: data)
+                self.activityIndicator.stopAnimating()
+            case .failure(let error):
+                print(error)
             }
-        } 
-    }
+        })
 }
+                                 }
+ 
 
 

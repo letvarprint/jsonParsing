@@ -23,5 +23,6 @@ class HolidayCell: UITableViewCell {
         typeLabel.text = holiday.type
         
     }
+    
 
 }
