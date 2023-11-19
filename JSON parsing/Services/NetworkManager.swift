@@ -120,15 +120,15 @@ final class NetworkManager {
             .responseJSON { response in
                 switch response.result {
                 case .success(let value):
-                    let courses = Holiday.getHolidays(from: value)
-                    completion(.success(courses))
+                    let holidays = Holiday.getHolidays(from: value)
+                    completion(.success(holidays))
                 case .failure(let error):
                     completion(.failure(error))
                 }
             }
     }
     
-    func fetchFox(form url: URL, completion: @escaping(Result<URL, AFError>) -> Void) {
+    func fetchFox(form url: URL, completion: @escaping(Result<String, AFError>) -> Void) {
         AF.request(url)
             .validate()
             .responseJSON { response in
@@ -142,7 +142,7 @@ final class NetworkManager {
             }
     }
     
-    func fetchData(from url: URL, completion: @escaping(Result<Data, AFError>) -> Void) {
+    func fetchData(from url: String, completion: @escaping(Result<Data, AFError>) -> Void) {
         AF.request(url)
             .validate()
             .responseData { dataResponse in

@@ -8,13 +8,13 @@
 import Foundation
 
 struct FoxImage: Decodable {
-    var image: URL?
-   private var link: URL?
+    var image: String?
+   private var link: String?
     
     
     init(foxData: [String: Any]) {
-        image = foxData["image"] as? URL ?? nil
-        link = foxData["link"] as? URL ?? nil
+        image = foxData["image"] as? String ?? nil
+        link = foxData["link"] as? String ?? nil
     }
     
     
