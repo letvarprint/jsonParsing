@@ -8,7 +8,7 @@
 import Foundation
 
 struct FoxImage: Decodable {
-   private var image: URL?
+    var image: URL?
    private var link: URL?
     
     

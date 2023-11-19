@@ -128,14 +128,14 @@ final class NetworkManager {
             }
     }
     
-    func fetchFox(form url: URL, completion: @escaping(Result<FoxImage, AFError>) -> Void) {
+    func fetchFox(form url: URL, completion: @escaping(Result<URL, AFError>) -> Void) {
         AF.request(url)
             .validate()
             .responseJSON { response in
                 switch response.result {
                 case .success(let value):
                     let fox = FoxImage.getFox(from: value)
-                    completion(.success(fox!))
+                    completion(.success((fox?.image!)!))
                 case .failure(let error):
                     completion(.failure(error))
                 }
